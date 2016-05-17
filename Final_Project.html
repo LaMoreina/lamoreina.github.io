@@ -1,0 +1,176 @@
+<!Doctype html>
+<html>
+<head>
+	<title>Final Project Data Science</title>
+	<link href='https://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="final_project_stylesheet.css">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+	<!--<script language="javascript" text="text/javascript" src="####.js"></script>-->
+</head>
+
+
+<body>
+
+<div id="bannerImage">
+	<img src="images/barnard_grad.jpg" width="100%" height="15%"> </br></br>
+	
+	<div id="bannerText"><h1>Economic Metrics and STEM Enrollment by Gender and Ethnicity</h1><h2>Data Science Final Project by Elaine Burchman</h2></div>
+</div>
+
+
+<div class="explica-se" id="explainProjectIdea">
+	
+	<section id="overview">
+		<div class="explanation" id="explainText1">
+			
+			<!-- an overview paragraph on what you did: what was your underlying hypothesis? 
+				What data, methods, and tools did you use to test and explore it? -->
+
+			<h2>Project Overview</h2>
+			
+			<p>The idea behind my brief research was to compare student enrollment data with economic trends, answering whether there is a connection between certain economic metrics and enrollment data for STEM fields over a twelve-year period.  I ultimately looked at three signs of economic health: GDP, unemployment, and household savings and compared them to STEM enrollment by ethnicity percentages and raw gender data.  I hypothesized that there would be a connection, albeit a small one, linking economic health and a high STEM enrollment.  Quite unexpectedly, I found evidence of a very strong correlation for some populations of STEM majors and GDP, which encouraged me to continue looking at the data.</p>
+
+			<p>Next, I examined student enrollment data by ethnicity and gender by running principle components analysis, or PCA, on enrollment data.  PCA is a technique used in data with many dimensions "to find ways in which data points can be grouped."  Here, there was no strong way to group the data points, contrary to what I anticipated.</p>
+
+			<p>Lastly came the visual analyss of depicting this data in graphs.  Though maybe there is no causal relationship, some trends became apparent when in this way.</p>
+
+			<p>Feel free to check out my code for this project on <a href="https://github.com/LaMoreina">github</a>!</p>
+
+		</div>
+	</section>
+
+	<section id="datasets">
+		<div class="explanation" id="explainText1">
+			
+			<!-- a data section with a paragraph detailing each data set -->
+
+			</br><h2>Data Sets</h2>
+			
+			<p>My STEM degree data came from the National Science Foundation's <a href="https://www.nsf.gov/nsb/sei/edTool/index.html">STEM education data</a>.  One <a href="https://www.nsf.gov/nsb/sei/edTool/data/college-14.html">study</a> on this page sought to answer the question,  "<a href="https://www.nsf.gov/nsb/sei/edTool/data/college-14.html">Who earns bachelor’s degrees in science and engineering?</a>" and included two data sets used throughout this project: one on the total number of men and women in granted degrees in science and engineering per year from 2000 to 2012, which included the total amount of science and engineering degrees in the same time frame. The National Science Foundation also provided another invaluable data set on the racial distrubition in science and engineering degrees over the same twelve-year period. These data sets defined science and engineering as biological/agricultural sciences, physical sciences, computer sciences, mathematics/statistics, engineering, psychology, and social sciences, but excluded health sciences. It defined physical sciences as chemistry, physics, astronomy, and earth/atmospheric/ocean sciences.  (The second data set included information only on U.S. citizens and permanent residents only; It did not include information regarding foreign nationals with temporary visas.)  Because Native American numbers stagnated at low numbers, I did not include this data in my analysis.</p>
+
+			<p>My data on GDP came from the <a href="https://www.whitehouse.gov/sites/default/files/docs/erp2013/ERP2013_Appendix_B.pdf">White House's official website</a>, which contained a lot of information that I may revisit for more analysis.  I was able to find the data for my specified time frame reported in billions.</p>
+
+			<p>Unemployment data came from <a href="http://www.infoplease.com/ipa/A0104719.html">www.infoplease.com/</a>, which ultimately derivered its data from The U.S. Department of Labor, Bureau of Labor Statistics.  The reported unemployment rate included persons age 16 and over. The website included one important caveat: "Beginning in Jan. 2006, data are not strictly comparable with data for 2005 and earlier years because of the revisions in the population controls used in the household survey." </p>
+
+			<p>The Organisation for Economic Co-operation and Development provided the <a href="https://data.oecd.org/hha/household-savings.htm#indicator-chart">household savings data</a>, which was reported as a percent of household disposable income.</p>
+
+		</div>
+	</section>
+
+
+	<section id="explain1">
+		<div class="explanation" id="explainText2">
+
+			<!-- a techniques section with a paragraph detailing, the process and tools you usedeach technique use,-->
+			</br><h2>Techniques</h2>
+			<h3>Correlation Data</h3>
+				<p> I was surprised to find that the amount of STEM degrees granted to men and women in the United States correlated as strongly as it did with GDP--with correlations of 0.96. As for ethnicity correlations, the percent of STEM degrees granted to Hispanic students correlated in a positive way the highest with GDP at .86.  For white STEM degree recipients, there was a strong negative correlation of -0.958.  For unemployment, the correlation was less stark.  Interestingly, the percent of STEM degrees awarded to Hispanic and White students were of the same magnitude, but one positively correlated, while the other negatively correlated. 
+
+				</br></br>
+					<h4 style = "text-align: center">The Correlation between Economic Metrics and Percent STEM Degrees Awarded by Ethnicity</h4>
+
+					<table style="width:100%">
+					  <tr>
+					  	<th></th>
+					    <th>GDP</th>
+					    <th>Unemloyment</th>		
+					    <th>Household Savings</th>
+					  </tr>
+					  <tr>
+					  	<td><b>Female</b></td>
+					    <td>0.960477496059</td>
+					    <td>0.736378523605</td>		
+					    <td>0.601423477144</td>
+					  </tr>
+					  <tr>
+					  	<td><b>Male</b></td>
+					    <td>0.966628874829</td>
+					    <td>0.725369534674</td>		
+					    <td>0.574058720196</td>
+					  </tr>
+					  <tr>
+					  	<td><b>White</b></td>
+					    <td>-0.958467533849</td>
+					    <td>-0.789587982178</td>		
+					    <td>-0.608410825852</td>
+					  </tr>
+					   <tr>
+					  	<td><b>Hispanic</b></td>
+					    <td>0.904718752989</td>
+					    <td>0.788099834793</td>		
+					    <td>0.726956676501</td>
+					  </tr>
+					   <tr>
+					  	<td><b>Black</b></td>
+					    <td>-0.0431835885359</td>
+					    <td>-0.105287706385</td>		
+					    <td>0.0386400787505</td>
+					  </tr>
+					  <tr>
+					  	<td><b>Asian Pacific Islanders</b></td>
+					    <td>0.861704338201</td>
+					    <td>0.649531508277</td>		
+					    <td>0.31294428421</td>
+					  </tr>
+					</table>
+				</p>
+		</div>
+
+	</section>
+
+	<section id="explain2">
+		<div  class="explanation" id="explainText3">
+			</br><h3>PCA Results</h3>
+
+				<p>Using PCA to examine the STEM degree data revealed that there was no pattern and thus no way to decrease the amount of variables for further analysis. </p>
+
+				<h4 style = "text-align: center">PCA Analysis for Percent STEM Degrees Awarded by Gender and Ethnicity</h4>
+				<center><img src="images/PCA.png"></center>
+		</div>
+	</section>
+
+	<section id="explain3">
+		<div class="explanation" id="explainText4">
+			</br><h3>Graphs</h3>
+			<p>Using the Bokeh visualization library for Python, I constructed several graphs to look for the trends found with the correlation analysis.</p>
+
+			<h4>Comparing GDP to Science and Engineering Degrees</h4>
+			<p>When plotting all of these different categories of degree recipients, the scaling had to be taken into consideration not only because the number of STEM degrees earned per year are so far off from GDP values, but also because there is a much larger percentage of white science and engineering students.</p>
+
+			<p>(GDP here is reported in billions.)</p>
+			<img src="images/GDP_STEM_Ethnicity_line.png">
+			
+			<p>Once White degree recipients were removed from the graph, the scaling allowed for the curves of Hispanic, Black, and Asian Pacific Islanders to be more visible.  Ultimately, no patterns were apparent.</p>
+			<img src="images/line_GDP_STEM_Eth_no-White.png">
+			
+			<h4>Comparing Unemployment with Total Science and Engineering Degrees per Year</h4>
+			<p>Unemployment appeared to have fluctuated in this twelve-year period and no patterns would be obvious.  For this metric, I simply looked at total science and engineering degrees earned, </p>
+			<img src="images/total_SE_Unemploy.png">
+			
+			<h4>Household Savings </h4>
+			<p>Just like unemployment, this data appeared to fluctuate in value without any clear connection to the collected STEM degree data. </p>
+			<img src="images/household_savings.png">
+		</div>
+	</section>
+
+	<!-- a citations section with links to all data sources, code sources, publications used. -->
+	<section id="explain3">
+		<div class="explanation" id="explainText4">
+			</br><h2>Citations</h2>
+				<ul>
+				  <li>OECD (2016), Household savings (indicator). doi: 10.1787/cfc6f499-en (Accessed on 13 May 2016)</li>
+				  <li>NSF (2016), "Who earns bachelor’s degrees in science and engineering?" https://www.nsf.gov/nsb/sei/edTool/data/college-14.html</li>
+				  <li>(2016) https://www.whitehouse.gov/sites/default/files/docs/erp2013/ERP2013_Appendix_B.pdf</li>
+				  <li>http://www.infoplease.com/ipa/A0104719.html</li>
+				  <li>http://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_iris.html</li>
+				  <li>Joel Grus, "Data Science from Scratch."  https://github.com/joelgrus/data-science-from-scratch/blob/master/code/statistics.py</li>
+				  <li>https://github.com/bokeh/bokeh/blob/master/examples/plotting/file/twin_axis.py</li>
+
+				</ul>
+		</div>
+	</section>
+
+</div>
+
+</body>

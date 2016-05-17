@@ -1,0 +1,73 @@
+h1 {
+  font-family: 'Quattrocento', serif;
+  font-size: 50px;
+}
+
+h2 {
+  font-family: 'Quattrocento', serif;
+  font-size: 32px;
+}
+
+h3 {
+  font-family: 'Quattrocento', serif;
+    font-size: 25px;
+}
+
+h4 {
+  font-family: 'Quattrocento', serif;
+    font-size: 20px;
+}
+
+p {
+  font-family: 'PT Serif', serif;
+}
+
+body {
+   background-color:lightgrey;
+}
+
+.explica-se {
+  margin:4%;
+  padding:3%; 
+   background-color:white;
+}
+
+#bannerImage{
+	position:relative;
+  	/*background:black;
+  	padding:10px;*/
+}
+img{
+	vertical-align:top;
+}
+#bannerText{
+	position:absolute;
+  	top:5%;
+  	left:2%; /*5%*/
+  	padding-right: 60%;
+  	color: "BLACK";
+  	font-size: 20px;
+  	line-height: 2.2em;
+  	/*background:red;*/
+  }
+
+
+  /* unvisited link */
+a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+}
+
+/* mouse over link */
+a:hover {
+    color: purple;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
